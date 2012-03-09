@@ -26,10 +26,10 @@ ASIHTTPRequest &#8211; Async Image Loading</p>
     self.popOver.delegate =self;
     [self.popOver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:TRUE];
 
-	<p>-(void)YSWebImagePickerDidSelectImage:(UIImage *)image<br />
-{</p>
-    self.imageView.image = image;<br />
-}<br />
+    -(void)YSWebImagePickerDidSelectImage:(UIImage *)image<br />
+{
+    self.imageView.image = image;
+}
 </code>
 
 	<p><h2>Issues:</h2></p>
