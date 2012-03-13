@@ -1,0 +1,48 @@
+	<p><h1>YSWebImagePicker </h1></p>
+
+	<p>The reason i&#8217;m sharing this is cause i wrote it all today and i&#8217;m sure others will enjoy it, but there are 2 issues, as stated in this document, so if you fix them please let me know.<br />
+It&#8217;s also my first shot at ARC, so comments are welcome.</p>
+
+	<p>YSWebImagePicker presents a viewController with a search bar that let the user search the web for images.</p>
+
+	<p>It uses Bing Image Search API.</p>
+
+	<p>Libs needed:</p>
+
+	<p>MNProgressHUD &#8211; progress indicator for loading images<br />
+AQGridView &#8211; layout table with thumbs in a grid<br />
+YSImagePicker &#8211; ImagePicker that displayed Remote Image URL<br />
+ASIHTTPRequest &#8211; Async Image Loading</p>
+
+	<p>run The Demo to see a basic usage for this lib.</p>
+
+<code>
+    self.webImagePicker = [[YSWebImagePicker alloc] init];
+    self.webImagePicker.delegate =self;
+
+    self.popOver =[[UIPopoverController alloc] initWithContentViewController:self.webImagePicker];
+    self.popOver.delegate =self;
+    [self.popOver presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:TRUE];
+
+	<p>-(void)YSWebImagePickerDidSelectImage:(UIImage *)image<br />
+{</p>
+    self.imageView.image = image;<br />
+}<br />
+</code>
+
+	<p><h2>Issues:</h2></p>
+
+	<p><ul><br />
+<li><br />
+In YSImagePicker, AQGridView there is an unwanted right margin.<br />
+workaround works , read more in codes YSImagePicker.m<br />
+</li><br />
+<li><br />
+AQGridView blinks the cells when reloadData is called.<br />
+Workaround, very bad!, using a unique cell for each index in YSImagePicker.m<br />
+</li><br />
+</ul></p>
+ 
+
+
+ 
